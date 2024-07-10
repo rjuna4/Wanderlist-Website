@@ -15,10 +15,10 @@
 
 <body>
   <div class="navbar">
-    <div class="logo">
+    <div class="logo-container">
         <img class="logo" rel="shortcut icon" src="../Images-Fonts/Wanderlist.png" />
-
     </div>
+
     <div class="menu">
         <ul>
             <li><a href="/HTML/home_page.html"><u>Home</u></a></li>
@@ -29,19 +29,24 @@
     </div>
 </div>
 
-    <div class="search__wrapper">
+    <div class="header">
+      <div class="header-text">
         <h1>Hello, Name</h1>
         <p>Plan your next trip! Never waste a second at your destination.</p>
+      </div>
 
-            <input type="text" id="searchTextField" placeholder="Where do you want to go?" class="search__input" data-search>
-        
+        <div class="search-bar">   
+        <input type="text" id="searchTextField" placeholder="Where do you want to go?" class="search__input" data-search>
+      </div> 
     </div>
 
     <div class="cities" id="cities">
         <h2 class="trending_title">Trending Cities</h2>
             <br>
         
-        <div class="trending__header">
+      <div class="carousel-container">
+        <button class="carousel-arrow left-arrow">&#9664;</button>
+            <div class="trending__header">
             <a href="" class="trending__link">
             <img src="../Images-fonts/peru.jpg" alt="img" class="trending__img" />
             <p class="trending__name">Cusco, Peru</p>
@@ -59,78 +64,26 @@
             <p class="trending__name">Chicago, USA</p>
             </a>
         </div>
+        <button class="carousel-arrow right-arrow">&#9654;</button>
      </div>    
 
-<!-- 
-     <div class="activity-menu">
-       <button class="tourist-attactions" id="tourist-attractions">Tourist Attractions</button>
-       <button class="hotels" id="hotels">Hotels</button>
-       <button class="restaurants" id="restaurants">Restaurants</button>
-     </div> -->
-
-
-     <h2 class="title_rec" id="title_rec"></h2>
-
-     <div class="row" id="result">
+     <div class="map-container">
+      <div class="map"></div>
     </div>
-
-    <div id="map"></div>
 
     <footer>
         <section class="ft-main">
           <div class="ft-main-item">
             <h2 class="ft-title">About</h2>
-            <ul>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Customers</a></li>
-              <li><a href="#">Careers</a></li>
-            </ul>
           </div>
           <div class="ft-main-item">
-            <h2 class="ft-title">Resources</h2>
-            <ul>
-              <li><a href="#">Docs</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">eBooks</a></li>
-              <li><a href="#">Webinars</a></li>
-            </ul>
+            <h2 class="ft-title">Contact Us</h2>
           </div>
-          <div class="ft-main-item">
-            <h2 class="ft-title">Contact</h2>
-            <ul>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Sales</a></li>
-              <li><a href="#">Advertise</a></li>
-            </ul>
-          </div>
-          <div class="ft-main-item">
-            <h2 class="ft-title">Stay Updated</h2>
-            <p>Subscribe to our newsletter to get our latest news.</p>
-            <form>
-              <input type="email" name="email" placeholder="Enter email address">
-              <input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </section>
-      
-        <section class="ft-social">
-          <ul class="ft-social-list">
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fab fa-github"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-          </ul>
         </section>
       
         <section class="ft-legal">
           <ul class="ft-legal-list">
-            <li><a href="#">Terms &amp; Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li>&copy; Copyright 2022. All rights reserverd.</li>
+            <li>&copy; Copyright 2022. All rights reserved.</li>
           </ul>
         </section>
       </footer>
