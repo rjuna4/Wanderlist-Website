@@ -24,7 +24,7 @@
         <br>
     </div>
     <div class="buttons">
-        <button class="guest-button" onclick="window.location.href='home_page.html';">Guest</button>
+        <button class="guest-button" onclick="visitAsGuest()">Guest</button>
         <button class="login-button" onclick="window.location.href='Login-Form.html';">Login</button>
         <button class="signup-button" onclick="window.location.href='SignUpForm.html';">Sign Up</button>
     </div>
@@ -43,4 +43,10 @@
 
 </footer>
 </body>
+
+<script>
+    function visitAsGuest() {
+    window.location.href = '/home_page.html?guest=true';
+    }
+</script>
 </html>

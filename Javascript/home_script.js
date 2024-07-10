@@ -19,7 +19,30 @@ const images = [
     '../Images-Fonts/lasagrada 1.png'
 ]
 
+const helloGuest = document.getElementById('hello-text');
+const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('guest')) {
+            helloGuest.textContent = 'Hello, Guest';
+        }
 
+        document.addEventListener("DOMContentLoaded", function() {
+            function scrollLeft() {
+                document.querySelector('.trending__header').scrollBy({
+                    left: -100, // Adjust the value as needed
+                    behavior: 'smooth'
+                });
+            }
+        
+            function scrollRight() {
+                document.querySelector('.trending__header').scrollBy({
+                    left: 100, // Adjust the value as needed
+                    behavior: 'smooth'
+                });
+            }
+        
+            document.querySelector('.left-arrow').addEventListener('click', scrollLeft);
+            document.querySelector('.right-arrow').addEventListener('click', scrollRight); 
+        });
 
 function search() {
     const search = {
@@ -81,7 +104,7 @@ function search() {
 
     const form = document.getElementById('recommendations-form')
 
-    form.addEventListener("submit", addBookmark)
+    // form.addEventListener("submit", addBookmark)
 
 async function addBookmark(event) {
 
@@ -225,12 +248,3 @@ function initMap() {
   })
     
 }
-
-const hamburger = document.querySelector('#hamburger');
-const navsub = document.querySelector('#nav-list');
-
-
-hamburger.addEventListener('click', () => {
- navsub.classList.toggle('show')
- hamburger.classList.toggle('open')
-});
