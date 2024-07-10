@@ -1,3 +1,5 @@
+/* Global Styles*/
+
 *{
     padding: 0;
     margin: 0;
@@ -35,25 +37,35 @@ html{
     height: 50px;
 }
 
-.menu ul{
+.navbar ul{
   display: flex;
   align-items: center;
   gap: 15px;
   margin-right: 15px;
 }
 
-.menu ul li a{
+.navbar ul li a{
   text-decoration: none;
-  color:rgb(0, 0, 0);
-  letter-spacing: 2px;
-  font-size: 18px;
+  color:#000000;
+  letter-spacing: 1.5px;
+  font-size: 16px;
   align-items: center;
 }
 
-.menu ul li a:hover{
-    border-bottom: 2px solid #000;
-    transition: .3s;
+.navbar ul li a:hover{
+  color: #57C2AF;
+  font-weight: bold;
+  transition: .1s;
 }
+
+.navbar ul li a.active {
+  color: #57C2AF;
+  font-weight: bold;
+}
+
+
+/* Home Page Styles*/
+
 
 .header {
     

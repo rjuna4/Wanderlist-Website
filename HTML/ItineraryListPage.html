@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="/HTML/home_page.html">Home</a></li>
                 <li><a href="/HTML/profile_page.html">Profile</a></li>
-                <li><a href="/HTML/ItineraryListPage.html"><u>Itineraries</u></a></li>
+                <li><a href="/HTML/ItineraryListPage.html" id="itineraries-link">Itineraries</a></li>
                 <li><a href="">Bookmarks</a></li> <!--Page does not exist yet :(-->
             </ul>
         </div>
@@ -30,36 +30,44 @@
         <h2>View all itineraries for your upcoming, current, and past trips here.</h2>
     </div>
 
-    <div class="upcoming-trips">
-        <h3 class="activity__header">My Upcoming Trips</h3>
-        <!-- <div>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-        </div> -->
-        <div class="activity__img--container">
-            <img src="../Images-Fonts/img12.jpg" class="activity__img" />
-            <img src="../Images-Fonts/img13.jpg"  class="activity__img" />
-          </div> 
+    <div class="itinerary-categories">
+        <div class="upcoming-trips">
+            <h3 class="activity_title">My Upcoming Trips</h3>
+            <!-- <div>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div> -->
+            <div class="activity_img_container">
+                <img class="activity__img" src="../Images-Fonts/img12.jpg"/>
+                <img class="activity__img" src="../Images-Fonts/img13.jpg"/>
+            </div> 
 
-    </div>
+        </div>
 
-    <div class="current-trips">
-        <h3 class="activity__header">My Current Trips</h3>
-        <div class="activity__img--container">
-            <img src="../Images-Fonts/img12.jpg" class="activity__img" />
-            <img src="../Images-Fonts/img13.jpg"  class="activity__img" />
-          </div>
+        <div class="current-trips">
+            <h3 class="activity_title">My Current Trips</h3>
+            <div class="activity_img_container">
+                <img class="activity__img" src="../Images-Fonts/img12.jpg"/>
+                <img class="activity__img" src="../Images-Fonts/img13.jpg"/>
+            </div>
 
-    </div>
+        </div>
 
-    <div class="past-trips">
-        <h3 class="activity__header">My Past Trips</h3>
-        <div class="activity__img--container">
-            <img src="../Images-Fonts/img12.jpg" class="activity__img" />
-            <img src="../Images-Fonts/img13.jpg"  class="activity__img" />
-          </div>
+        <div class="past-trips">
+            <h3 class="activity_title">My Past Trips</h3>
+            <div class="activity_img_container">
+                <img class="activity__img" src="../Images-Fonts/img12.jpg"/>
+                <img class="activity__img" src="../Images-Fonts/img13.jpg"/>
+            </div>
 
+        </div>
     </div>
 
 </body>
+
+<script>
+    if (window.location.pathname.includes('ItineraryListPage.html')) {
+  document.getElementById('itineraries-link').classList.add('active');
+}
+</script>
 
 </html>

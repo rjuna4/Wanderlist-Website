@@ -19,6 +19,10 @@ const images = [
     '../Images-Fonts/lasagrada 1.png'
 ]
 
+if (window.location.pathname.includes('home_page.html')) {
+    document.getElementById('home-link').classList.add('active');
+}
+
 const helloGuest = document.getElementById('hello-text');
 const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('guest')) {
