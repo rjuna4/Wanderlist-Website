@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,78 +11,120 @@
 
     <script src="https://kit.fontawesome.com/b8452e11c5.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class= “header-image”>
-    
-    <div class="navbar">
-        <div class="logo">
-            <img class="logo" rel="shortcut icon" src="../Images-Fonts/Wanderlist.png" />
+    <div id="navbar-container" async></div>
+    <script src="../Javascript/loadHTML.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadHTML('../HTML/Navbar.html', 'navbar-container', function() {
+        });
+    });
+    </script>
+    <div id="profile-content"></div>
 
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="/HTML/home_page.html">Home</a></li>
-                <li><a href="/HTML/profile_page.html" id="profile-link">Profile</a></li>
-                <li><a href="/HTML/ItineraryListPage.html">Itineraries</a></li>
-                <li><a href="#">Bookmarks</a></li> <!--Page does not exist yet :(-->
-            </ul>
-        </div>
-    </div>
-
-    <div class="header_wrapper">
-        <div class="cols_contain">
-            <div class="left__col">
-                <img src="../Images-Fonts/img6.jpg" alt="image" class="img"/>
-                <h2 class="user-name">Name</h2>
-            <div class="img__container">
-   
-                  
-                         <button onchange="previewFile()" class="btn">
-                            <i class="fa-solid fa-camera"></i>
-                            <label  for="imageUpload">Upload</label>
-                        </button>
-                    <input type='file'  name="fileToUpload" id="imageUpload" accept=".png, .jpg, .jpeg" onchange="previewFile()"/>
-                    <!-- <label for="imageUpload"></label> -->
-                
-                <!-- <i class="fa-solid fa-plus"></i>
-                <h2 class="user-name">Name</h2> -->
-            </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
-
-    <!-- <div class="right__col">
-       <nav>
-            <ul>
-                <li><a href="#">Recent Activity</a></li>
-                <li><a href="#">Preferences</a></li>
-               
-            </ul>
-        </nav>
-    </div> -->
-    <div class="activity__section">
-          <h3 class="activity_title">Recent Activity</h3>
-          <div class="activity_img_container">
-            <img src="../Images-Fonts/Dubai.jpg" class="activity__img" />
-            <img src="../Images-Fonts/Italy.webp"  class="activity__img" />
-          </div>  
-    </div>
-    <div class="Preferences">
-        <div class="preferences__header">
-            <h3 class="activity_title">My Preferences</h3>
-            <div>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-            </div>
-        </div>
-        <div class="activity_img_container">
-          <img src="../Images-Fonts/Peruu.jpg" class="activity__img" />
-          <img src="../Images-Fonts/resorts.jpg"  class="activity__img" />
-          <img src="../Images-Fonts/toy-story.jpg" class="activity__img" />
-        </div>  
-    </div>
-
-    <script src="../Javascript/profile_page_script.js"></script>
 </body>
+
+<script src="../Javascript/profile_page_script.js"></script>
+<script src="../Javascript/loadHTML.js"></script>
+<script src="../Javascript/GuestCheck.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    /*** User Browsing As Guest 
+     * All URLs are updated for guests
+     * To Show Specific Guest View ***/  
+    loadHTML('../HTML/Navbar.html', 'navbar-container', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const isGuest = urlParams.has('guest');
+        const profileContent = document.getElementById('profile-content');
+
+        if (isGuest) {
+                const navbarLinks = document.querySelectorAll('#navbar-container a');
+                const helloGuest = document.getElementById('hello-text');
+                
+                // Update Welcome Text
+                if (helloGuest) {
+                    helloGuest.textContent = 'Hello, Guest';
+                }
+
+                // Update navbar links to include guest status
+                navbarLinks.forEach(link => {
+                    const url = new URL(link.href);
+                    if (!url.searchParams.has('guest')) {
+                        url.searchParams.set('guest', 'true');
+                        link.href = url.toString();
+                    }
+                });
+
+                /*** Set Guest Profile Content ***/
+                profileContent.innerHTML = `
+                <div class="header_container">
+                    <div class="header_image"> </div> 
+                    <div class="guest-profile">
+                        <div class="header_wrapper">
+                            <h2>Welcome, Guest</h2>
+                            <p>Sign up to save your itineraries and come back to them later!</p>
+                            <button class="sign_up_btn" onclick="window.location.href='SignUpForm.html';">
+                                    <label  for="imageUpload">Sign Up</label>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            } else {
+                profileContent.innerHTML = `
+                <div class="header_container">
+                    <div class="header_image"> </div> 
+                        <div class="header_info">
+                            <div class="user_info_container">
+                                <div class="profile_pic_container">
+                                    <img src="../Images-Fonts/img6.jpg" alt="image" class="blank_user_img"/>
+                                    <div class="upload_img_container">
+                                        <button onchange="previewFile()" class="upload_profile_img_btn">
+                                            <i class="fa-solid fa-camera"></i>
+                                            <label  for="imageUpload">Upload</label>
+                                        </button>
+                                        <input type='file'  name="fileToUpload" id="imageUpload" accept=".png, .jpg, .jpeg" onchange="previewFile()"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2 class="user-name">Name</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="activity__section">
+                            <h3 class="activity_title">Recent Activity</h3>
+                            <div class="activity_img_container">
+                                <img src="../Images-Fonts/Dubai.jpg" class="activity__img" />
+                                <img src="../Images-Fonts/Italy.webp"  class="activity__img" />
+                            </div>  
+                        </div>
+                        <div class="Preferences">
+                            <div class="preferences__header">
+                                <h3 class="activity_title">My Preferences</h3>
+                        <div>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="activity_img_container">
+                    <img src="../Images-Fonts/Peruu.jpg" class="activity__img" />
+                    <img src="../Images-Fonts/resorts.jpg"  class="activity__img" />
+                    <img src="../Images-Fonts/toy-story.jpg" class="activity__img" />
+                    </div>  
+                </div>
+                `;
+            }
+        
+    /*** Set Current Page As Active ***/
+        const currentPath = window.location.pathname;
+            document.querySelectorAll('#navbar-container a').forEach(link => {
+                if (link.href.includes(currentPath)) {
+                    link.classList.add('active');
+                }
+            });
+      });
+  });
+</script>
+
 </html>
