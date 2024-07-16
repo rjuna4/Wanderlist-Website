@@ -19,35 +19,28 @@ const images = [
     '../Images-Fonts/lasagrada 1.png'
 ]
 
-if (window.location.pathname.includes('home_page.html')) {
-    document.getElementById('home-link').classList.add('active');
-}
 
-const helloGuest = document.getElementById('hello-text');
-const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('guest')) {
-            helloGuest.textContent = 'Hello, Guest';
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            function scrollLeft() {
-                document.querySelector('.trending__header').scrollBy({
-                    left: -100, // Adjust the value as needed
-                    behavior: 'smooth'
-                });
-            }
-        
-            function scrollRight() {
-                document.querySelector('.trending__header').scrollBy({
-                    left: 100, // Adjust the value as needed
-                    behavior: 'smooth'
-                });
-            }
-        
-            document.querySelector('.left-arrow').addEventListener('click', scrollLeft);
-            document.querySelector('.right-arrow').addEventListener('click', scrollRight); 
+/*** Carousel Arrows Functionality ***/
+document.addEventListener("DOMContentLoaded", function() {
+    function scrollLeft() {
+        document.querySelector('.trending__header').scrollBy({
+            left: -100,
+            behavior: 'smooth'
         });
+    }
 
+    function scrollRight() {
+        document.querySelector('.trending__header').scrollBy({
+            left: 100,
+            behavior: 'smooth'
+        });
+    }
+
+    document.querySelector('.left-arrow').addEventListener('click', scrollLeft);
+    document.querySelector('.right-arrow').addEventListener('click', scrollRight); 
+});
+
+/*** Search Bar Functionality ***/
 function search() {
     const search = {
         bounds: map.getBounds(),

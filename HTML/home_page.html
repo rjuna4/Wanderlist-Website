@@ -14,21 +14,7 @@
 </head>
 
 <body>
-  <div class="navbar">
-    <div class="logo-container">
-        <img class="logo" rel="shortcut icon" src="../Images-Fonts/Wanderlist.png" />
-    </div>
-
-    <div class="menu">
-        <ul>
-            <li><a href="/HTML/home_page.html" id="home-link">Home</a></li>
-            <li><a href="/HTML/profile_page.html">Profile</a></li>
-            <li><a href="/HTML/ItineraryListPage.html">Itineraries</a></li>
-            <li><a href="#">Bookmarks</a></li> <!--Page does not exist yet :(-->
-        </ul>
-    </div>
-</div>
-
+  <div id="navbar-container" async></div>
     <div class="header">
       <div class="header-text">
         <h1 id="hello-text">Hello, Name</h1>
@@ -87,9 +73,48 @@
           </ul>
         </section>
       </footer>
-
-
-    <script src="../Javascript/home_script.js"></script>
 </body>
+
+<script src="../Javascript/home_script.js"></script>
+<script src="../Javascript/loadHTML.js"></script>
+<script src="../Javascript/GuestCheck.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    /*** User Browsing As Guest 
+     * All URLs are updated for guests
+     * To Show Specific Guest View ***/  
+    loadHTML('../HTML/Navbar.html', 'navbar-container', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const isGuest = urlParams.has('guest');
+
+        if (isGuest) {
+                    const navbarLinks = document.querySelectorAll('#navbar-container a');
+                    const helloGuest = document.getElementById('hello-text');
+                    
+                    // Update Welcome Text
+                    if (helloGuest) {
+                        helloGuest.textContent = 'Hello, Guest';
+                    }
+
+                    // Update navbar links to include guest status
+                    navbarLinks.forEach(link => {
+                        const url = new URL(link.href);
+                        if (!url.searchParams.has('guest')) {
+                            url.searchParams.set('guest', 'true');
+                            link.href = url.toString();
+                        }
+                    });
+                }
+        
+        /*** Set Current Page As Active ***/
+          const currentPath = window.location.pathname;
+                document.querySelectorAll('#navbar-container a').forEach(link => {
+                    if (link.href.includes(currentPath)) {
+                        link.classList.add('active');
+                    }
+                });
+      });
+  });
+</script>
 
 </html>
