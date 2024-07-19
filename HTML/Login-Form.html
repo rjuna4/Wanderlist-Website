@@ -15,31 +15,36 @@
 </head>
 
 <body>
-
-    <div class="container" id="container">
-        <button class="login-button1" onclick="window.location.href='Login-Form.html';">Login</button>
-        <button class="sign-up-button" onclick="window.location.href='SignUpForm.html';">Sign Up</button>
-    </div>
-        
-
-    <div class="form">
-        <div class="form-container">
-        <form action="/api/login" id="login-form" method="POST" enctype="multipart/form-data">
-            <h1>Welcome <br> Back!</h1>
-            <div>
-            <span class='user-icon' id="one"></span>
-            <input type="username" class="username" placeholder="Username" id="username"/>
-            <br>
-            <span class='password-icon' id="two"></span>
-            <input type="password" class="password" placeholder="Password" id="password"/>
-            <br>
-            <p class="forgotten-password">Forgot your Username <br>and/or Password? <br> <a href="#" style="color: white"><u>Click Here.</u></a></p>
-
-            <button class="login-button2" type="submit" onclick=login(event) value="Submit Form">Login </button>
+    <div class="body">
+        <div class="nav-buttons" id="nav-buttons">
+            <button class="login-button" onclick="window.location.href='Login-Form.html';">Login</button>
+            <button class="signup-button" onclick="window.location.href='SignUpForm.html';">Sign Up</button>
         </div>
-        </form>
+
+        <h1>Welcome Back!</h1>
+
+        <div class="form">
+            <div class="form-container">
+                <form action="/api/login" id="login-form" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <div class="username">
+                            <span class='user-icon' id="one"></span>
+                            <input type="username" class="user-input" placeholder="Username" id="username"/>
+                        </div>
+                        <br>
+                        <div class="username">
+                            <span class='password-icon' id="two"></span>
+                            <input type="password" class="password-input" placeholder="Password" id="password"/>
+                        </div>
+                        <br>
+                        <p class="forgotten-password">Forgot Username/Password?</p>
+                        <div><text><a href="#" style="color: white"><u>Reset Here.</u></a></text></div>
+                        <button class="submit-login-button" type="submit" onclick=login(event) value="Submit Form">Login </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 
 </body>
 

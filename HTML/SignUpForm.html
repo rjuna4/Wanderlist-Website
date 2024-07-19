@@ -16,43 +16,49 @@
 </head>
 
 <body>
+    <div class="body">
+        <div class="nav-buttons" id="nav-buttons">
+            <button class="login-button" onclick="window.location.href='Login-Form.html';">Login</button>
+            <button class="signup-button" onclick="window.location.href='SignUpForm.html';">Sign Up</button>
+        </div>
 
-    <div class="container" id="container">
-        <button class="login-btn1" onclick="window.location.href='Login-Form.html';">Login</button>
-        <button class="sign-up-btn1" onclick="window.location.href='SignupForm.html';">Sign Up</button>
-    </div>
+        <h1>Sign Up</h1>
+        <h3>Get started in seconds! Plan your next trip with Wanderlist.</h3>
 
-    <div class="form">
-        <div class="form-container">
-
-            <div class="heading">
-            <form action="/api/signup" id="sign-up-form" method="POST" enctype="multipart/form-data">
-                <h1>Sign Up </h1>
-                <h2>Get started in seconds! <br>Plan your next trip<br> with our website.</h2>
-            </div>
-
-                <div>
-                    <span class='user-icon' id="one"></span>
-                    <input type="full-name" autocomplete="off" class="full-name" placeholder="Full Name" id="full-name">
-                    <br>
-                    <span class='email-address-icon'></span>
-                    <input type="email-address" class="email-address" placeholder="Email Address" id="email-address">
-                    <br>
-                    <span class='user-icon' id="two"></span>
-                    <input type="username" class="username" placeholder="Username" id="username">
-                    <br>
-                    <span class='password-icon' id="three"></span>
-                    <input type="password" class="password" placeholder="Password" id="password">
-                    <br>
-                    <span class='password-icon' id="four"></span>
-                    <input type="password" class="confirm-password" placeholder="Confirm Password" id="confirm-password">
-                    <br>
-                    <button class="sign-up-btn2" type="submit" value="Submit Form" id="signup" onclick=registerUser(event)>Submit</button>
-                
-                </div>
-
-            </form>
-        </div>    
+        <div class="form">
+            <div class="form-container">
+                <form action="/api/signup" id="sign-up-form" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <div class="full-name">
+                            <span class='user-icon' id="one"></span>
+                            <input type="full-name" autocomplete="off" class="full-name-input" placeholder="Full Name" id="full-name">
+                        </div>
+                        <br>
+                        <div class="email-address">
+                            <span class='email-address-icon'></span>
+                            <input type="email-address" class="email-address-input" placeholder="Email Address" id="email-address">
+                        </div>
+                        <br>
+                        <div class="username">
+                            <span class='user-icon' id="two"></span>
+                            <input type="username" class="username-input" placeholder="Username" id="username">
+                        </div>
+                        <br>
+                        <div class="password">
+                            <span class='password-icon' id="three"></span>
+                            <input type="password" class="password-input" placeholder="Password" id="password">
+                        </div>
+                        <br>
+                        <div class="confirm-password">
+                            <span class='password-icon' id="four"></span>
+                            <input type="password" class="confirm-password-input" placeholder="Confirm Password" id="confirm-password">
+                        </div>
+                        <br>
+                        <button class="submit-signup-button" type="submit" value="Submit Form" id="signup" onclick=registerUser(event)>Submit</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
     </div>
 </body>
 
